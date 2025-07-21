@@ -1,5 +1,5 @@
 <template>
-    <div class="bg-gradient-to-br from-blue-800 to-blue-700 h-screen w-screen">
+    <div class="bg-gradient-to-br from-indigo-600 to-blue-500 h-screen w-screen">
         <wrapper/>
         <!-- <TestWeather/> -->
     </div>
@@ -7,7 +7,7 @@
 
 <script setup>
 import Wrapper from '@/components/wrapper.vue';
-import TestWeather from './components/testWeather.vue';
+import TestWeather from '@/components/testWeather.vue';
 
 </script>
 

@@ -8,6 +8,12 @@ import { defineStore } from "pinia";
     }),
 
     actions: {
+
+        changeCityName(newCityName) {
+            this.cityName = newCityName;
+            localStorage.setItem("cityName", newCityName);
+        },
+
         async getWeatherData() {
             const url =
     `http://api.openweathermap.org/data/2.5/forecast?&units=metric&lang=ru&q=${this.cityName}&appid=${import.meta.env.VITE_WEATHER_API_KEY}`;
