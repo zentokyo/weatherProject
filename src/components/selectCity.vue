@@ -4,8 +4,6 @@ import { computed, ref } from "vue";
 
 const weatherStore = useWeatherStore();
 
-// let citySelectorShow = ref([]);
-
 const defaultCities = ref([
     "Москва",
     "Санкт-Петербург",
@@ -86,9 +84,9 @@ document.addEventListener("click", (e) => {
 </script>
 
 <template>
-    <div class="mt-4">
+    <div class="mt-4 text">
         <div class="relative selector-container">
-            <h1 class="text-white font-medium text-2xl">
+            <h1 class="text-white font-medium text-2xl text-center">
                 Прогноз погоды для города:
                 <span
                     class="font-bold cursor-pointer inline-flex"
@@ -114,6 +112,7 @@ document.addEventListener("click", (e) => {
                     class="absolute right-0 z-10 w-50 mt-2 bg-white rounded-md shadow-lg"
                 >
                     <input
+                        @keyup.enter="selectCity(checkQueryCity[0])"
                         ref="searchInput"
                         v-model="queryCity"
                         type="text"
@@ -126,13 +125,13 @@ document.addEventListener("click", (e) => {
                     <TransitionGroup
                         tag="ul"
                         name="list"
-                        class="max-h-50 overflow-y-scroll transition duration-300"
+                        class="max-h-50 overflow-y-scroll focus:outline-none transition duration-300 divide-y-1 divide-solid divide-gray-200"
                     >
                         <li
                             @click="selectCity(city)"
                             v-for="city in checkQueryCity"
                             :key="city"
-                            class="p-2 cursor-pointer hover:bg-gray-100 hover:rounded-md"
+                            class="p-2 cursor-pointer hover:bg-gray-100 hover:rounded-xl"
                         >
                             {{ city }}
                         </li>
